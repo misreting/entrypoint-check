@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "entrypoint-check"
+version = "0.1.0"
+description = "Statically (or dynamically, in isolated subprocesses) verify that packaged entry points actually resolve before your users find out at runtime."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "__AUTHOR__"}]
+keywords = ["packaging", "entry-points", "console-scripts", "wheel", "linting", "static-analysis"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: System :: Archiving :: Packaging",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/__GH_OWNER__/entrypoint-check"
+Repository = "https://github.com/__GH_OWNER__/entrypoint-check"
+Issues = "https://github.com/__GH_OWNER__/entrypoint-check/issues"
+
+[project.scripts]
+entrypoint-check = "entrypoint_check.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "mypy>=1.13",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/entrypoint_check"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+# `examples/` holds standalone throwaway demo packages (their own
+# pyproject.toml each, deliberately broken entry points) used only to
+# produce README evidence; they are out of scope for this project's mypy
+# run by simply not being listed in `files` above.

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epkg-broken-setuptools"
+version = "0.1.0"
+description = "Demo package for entrypoint-check README evidence: a broken console_scripts entry point, built with setuptools."
+requires-python = ">=3.11"
+
+[project.scripts]
+# Deliberately broken: epkg.cli defines `main`, not `main_typo`.
+epkg = "epkg.cli:main_typo"
+
+[tool.setuptools.packages.find]
+where = ["src"]
