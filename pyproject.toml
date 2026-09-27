@@ -9,7 +9,7 @@ description = "Statically (or dynamically, in isolated subprocesses) verify that
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
-authors = [{name = "__AUTHOR__"}]
+authors = [{name = "entrypoint-check"}]
 keywords = ["packaging", "entry-points", "console-scripts", "wheel", "linting", "static-analysis"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -28,9 +28,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/__GH_OWNER__/entrypoint-check"
-Repository = "https://github.com/__GH_OWNER__/entrypoint-check"
-Issues = "https://github.com/__GH_OWNER__/entrypoint-check/issues"
+Homepage = "https://github.com/agentscope-ai-java/entrypoint-check"
+Repository = "https://github.com/agentscope-ai-java/entrypoint-check"
+Issues = "https://github.com/agentscope-ai-java/entrypoint-check/issues"
 
 [project.scripts]
 entrypoint-check = "entrypoint_check.cli:main"
